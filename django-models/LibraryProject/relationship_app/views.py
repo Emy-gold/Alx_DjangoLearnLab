@@ -19,13 +19,14 @@ class LibraryDetailView(DetailView):
     template_name = "relationship_app/library_detail.html"
     context_object_name = "library"
 
-def register_view(request):
+
+def register(request):
     if request.method == "POST":
         form = UserCreationForm(request.POST)
         if form.is_valid():
             user = form.save()
-            login(request, user)  # auto-login after registration
-            return redirect("list_books")  # redirect to books page
+            login(request, user)  # log in the new user
+            return redirect("list_books")  # redirect after registration
     else:
         form = UserCreationForm()
     return render(request, "relationship_app/register.html", {"form": form})
