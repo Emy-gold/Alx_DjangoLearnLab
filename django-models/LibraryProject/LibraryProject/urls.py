@@ -1,6 +1,6 @@
 from django.urls import path
-from .views import list_books 
-from .views import LibraryDetailView# 👈 explicit import
+from .views import list_books
+from .views import LibraryDetailView  # 👈 explicit import
 
 urlpatterns = [
     path("books/", list_books, name="list_books"),  # FBV
